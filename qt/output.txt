@@ -1,1 +1,1 @@
-python -m PyQt6.uic.pyuic
+python -m PyQt6.uic.pyuic -x main_window.ui -o main_window.py
