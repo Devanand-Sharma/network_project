@@ -49,8 +49,18 @@ class Ui_Form(object):
         self.gridLayout.addLayout(self.horizontalLayout_2, 2, 2, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
 
+        self.connect.clicked.connect(self.connectClicked)
+        self.cancel.clicked.connect(self.cancelClicked)
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+
+
+    def connectClicked(self, Form):
+        print("Connect Clicked")
+
+    def cancelClicked(self, Form):
+        print("Cancel Clicked")
+        sys.exit()
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
@@ -60,6 +70,8 @@ class Ui_Form(object):
         self.label_2.setText(_translate("Form", "Port Number"))
         self.connect.setText(_translate("Form", "Connect"))
         self.cancel.setText(_translate("Form", "Cancel"))
+
+    
 
 
 if __name__ == "__main__":
