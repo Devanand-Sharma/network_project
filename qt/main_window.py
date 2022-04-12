@@ -67,8 +67,8 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.reconnect.setFont(font)
         self.reconnect.setStyleSheet("#reconnect {\n"
-"    border: 2px solid #bf5af2;\n"
-"    border-radius: .8em;\n"
+"    border: 1px solid #bf5af2;\n"
+"    border-radius: .3em;\n"
 "    padding: .2em .5em;\n"
 "    min-width: 4em;\n"
 "}\n"
@@ -107,6 +107,7 @@ class Ui_MainWindow(object):
 "    border: 1px solid transparent;\n"
 "    border-bottom-color: #ccc;\n"
 "    padding: .2em;\n"
+"    margin-bottom: 1px;\n"
 "}\n"
 "#message:focus {\n"
 "    border-bottom-color: #64d2ff;\n"
@@ -119,8 +120,8 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.upload.setFont(font)
         self.upload.setStyleSheet("#upload {\n"
-"    border: 2px solid #66d4cf;\n"
-"    border-radius: .8em;\n"
+"    border: 1px solid #66d4cf;\n"
+"    border-radius: .3em;\n"
 "    padding: .2em .5em;\n"
 "    min-width: 4em;\n"
 "}\n"
@@ -130,7 +131,7 @@ class Ui_MainWindow(object):
 "    padding-left: 0;\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/main_prefix/attachment-2.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("attachment-2.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.upload.setIcon(icon2)
         self.upload.setObjectName("upload")
         self.horizontalLayout_2.addWidget(self.upload)
@@ -139,8 +140,8 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.send.setFont(font)
         self.send.setStyleSheet("#send {\n"
-"    border: 2px solid #0a84ff;\n"
-"    border-radius: .8em;\n"
+"    border: 1px solid #0a84ff;\n"
+"    border-radius: .3em;\n"
 "    padding: .2em .5em;\n"
 "    min-width: 4em;\n"
 "}\n"
@@ -150,7 +151,7 @@ class Ui_MainWindow(object):
 "    padding-left: 0;\n"
 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/main_prefix/send-plane-2-line.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon3.addPixmap(QtGui.QPixmap("send-plane-2-line.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.send.setIcon(icon3)
         self.send.setObjectName("send")
         self.horizontalLayout_2.addWidget(self.send)

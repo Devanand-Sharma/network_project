@@ -1,4 +1,4 @@
-<RCC>
+<!DOCTYPE RCC><RCC version="1.0">
   <qresource prefix="main_prefix">
     <file>send-plane-2-line.png</file>
     <file>refresh-line.png</file>
