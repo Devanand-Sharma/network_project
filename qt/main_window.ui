@@ -50,7 +50,7 @@
       <number>10</number>
      </property>
      <item>
-      <widget class="QListWidget" name="listWidget">
+      <widget class="QListWidget" name="channel">
        <property name="maximumSize">
         <size>
          <width>200</width>
@@ -63,8 +63,20 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">border: none;
-font-size: 9;</string>
+        <string notr="true">#channel {
+	border: none;
+	font-size: 9;
+	border-right: 1px solid #d6d9dc;
+	padding: .2em 0;
+}
+#channel::item {
+	background: #f2f2f7;
+	border-radius: .3em;
+}
+#channel::item:selected {
+	background-color: #64d2ff;
+	color: #fff;
+}</string>
        </property>
        <item>
         <property name="text">
@@ -105,8 +117,14 @@ font-size: 9;</string>
            <property name="styleSheet">
             <string notr="true">#reconnect {
 	border: 2px solid #bf5af2;
-	border-radius: 1em;
-	padding: .3em;
+	border-radius: .8em;
+	padding: .2em .5em;
+	min-width: 4em;
+}
+#reconnect:hover {
+	background-color: #bf5af2;
+	color: #fff;
+	padding-left: 0;
 }</string>
            </property>
            <property name="text">
@@ -127,15 +145,66 @@ font-size: 9;</string>
            <pointsize>12</pointsize>
           </font>
          </property>
+         <property name="styleSheet">
+          <string notr="true">#textEdit {
+	background: #fafafa;
+	border: none;
+}</string>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOn</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAsNeeded</enum>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QLineEdit" name="lineEdit"/>
+          <widget class="QLineEdit" name="message">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#message {
+	background-color: #fafafa;
+	border: 1px solid transparent;
+	border-bottom-color: #ccc;
+	padding: .2em;
+}
+#message:focus {
+	border-bottom-color: #64d2ff;
+	border-width: 2px;
+}</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QPushButton" name="upload">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#upload {
+	border: 2px solid #66d4cf;
+	border-radius: .8em;
+	padding: .2em .5em;
+	min-width: 4em;
+}
+#upload:hover {
+	background-color: #66d4cf;
+	color: #fff;
+	padding-left: 0;
+}</string>
+           </property>
            <property name="text">
             <string>Upload</string>
            </property>
@@ -147,8 +216,30 @@ font-size: 9;</string>
          </item>
          <item>
           <widget class="QPushButton" name="send">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#send {
+	border: 2px solid #0a84ff;
+	border-radius: .8em;
+	padding: .2em .5em;
+	min-width: 4em;
+}
+#send:hover {
+	background-color: #0a84ff;
+	color: #fff;
+	padding-left: 0;
+}</string>
+           </property>
            <property name="text">
             <string>Send</string>
+           </property>
+           <property name="icon">
+            <iconset resource="assets.qrc">
+             <normaloff>:/main_prefix/send-plane-2-line.png</normaloff>:/main_prefix/send-plane-2-line.png</iconset>
            </property>
           </widget>
          </item>
@@ -169,6 +260,9 @@ font-size: 9;</string>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="title">
      <string>Account</string>
     </property>

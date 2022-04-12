@@ -27,17 +27,29 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(10, 10, 10, 10)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.listWidget = QtWidgets.QListWidget(self.horizontalLayoutWidget)
-        self.listWidget.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.channel = QtWidgets.QListWidget(self.horizontalLayoutWidget)
+        self.channel.setMaximumSize(QtCore.QSize(200, 16777215))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.listWidget.setFont(font)
-        self.listWidget.setStyleSheet("border: none;\n"
-"font-size: 9;")
-        self.listWidget.setObjectName("listWidget")
+        self.channel.setFont(font)
+        self.channel.setStyleSheet("#channel {\n"
+"    border: none;\n"
+"    font-size: 9;\n"
+"    border-right: 1px solid #d6d9dc;\n"
+"    padding: .2em 0;\n"
+"}\n"
+"#channel::item {\n"
+"    background: #f2f2f7;\n"
+"    border-radius: .3em;\n"
+"}\n"
+"#channel::item:selected {\n"
+"    background-color: #64d2ff;\n"
+"    color: #fff;\n"
+"}")
+        self.channel.setObjectName("channel")
         item = QtWidgets.QListWidgetItem()
-        self.listWidget.addItem(item)
-        self.horizontalLayout.addWidget(self.listWidget)
+        self.channel.addItem(item)
+        self.horizontalLayout.addWidget(self.channel)
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
@@ -56,8 +68,14 @@ class Ui_MainWindow(object):
         self.reconnect.setFont(font)
         self.reconnect.setStyleSheet("#reconnect {\n"
 "    border: 2px solid #bf5af2;\n"
-"    border-radius: 1em;\n"
-"    padding: .3em;\n"
+"    border-radius: .8em;\n"
+"    padding: .2em .5em;\n"
+"    min-width: 4em;\n"
+"}\n"
+"#reconnect:hover {\n"
+"    background-color: #bf5af2;\n"
+"    color: #fff;\n"
+"    padding-left: 0;\n"
 "}")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/main_prefix/refresh-line.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -69,20 +87,71 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.textEdit.setFont(font)
+        self.textEdit.setStyleSheet("#textEdit {\n"
+"    background: #fafafa;\n"
+"    border: none;\n"
+"}")
+        self.textEdit.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+        self.textEdit.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
+        self.textEdit.setReadOnly(True)
         self.textEdit.setObjectName("textEdit")
         self.verticalLayout.addWidget(self.textEdit)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.lineEdit = QtWidgets.QLineEdit(self.horizontalLayoutWidget)
-        self.lineEdit.setObjectName("lineEdit")
-        self.horizontalLayout_2.addWidget(self.lineEdit)
+        self.message = QtWidgets.QLineEdit(self.horizontalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.message.setFont(font)
+        self.message.setStyleSheet("#message {\n"
+"    background-color: #fafafa;\n"
+"    border: 1px solid transparent;\n"
+"    border-bottom-color: #ccc;\n"
+"    padding: .2em;\n"
+"}\n"
+"#message:focus {\n"
+"    border-bottom-color: #64d2ff;\n"
+"    border-width: 2px;\n"
+"}")
+        self.message.setObjectName("message")
+        self.horizontalLayout_2.addWidget(self.message)
         self.upload = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.upload.setFont(font)
+        self.upload.setStyleSheet("#upload {\n"
+"    border: 2px solid #66d4cf;\n"
+"    border-radius: .8em;\n"
+"    padding: .2em .5em;\n"
+"    min-width: 4em;\n"
+"}\n"
+"#upload:hover {\n"
+"    background-color: #66d4cf;\n"
+"    color: #fff;\n"
+"    padding-left: 0;\n"
+"}")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/main_prefix/attachment-2.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.upload.setIcon(icon2)
         self.upload.setObjectName("upload")
         self.horizontalLayout_2.addWidget(self.upload)
         self.send = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.send.setFont(font)
+        self.send.setStyleSheet("#send {\n"
+"    border: 2px solid #0a84ff;\n"
+"    border-radius: .8em;\n"
+"    padding: .2em .5em;\n"
+"    min-width: 4em;\n"
+"}\n"
+"#send:hover {\n"
+"    background-color: #0a84ff;\n"
+"    color: #fff;\n"
+"    padding-left: 0;\n"
+"}")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/main_prefix/send-plane-2-line.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.send.setIcon(icon3)
         self.send.setObjectName("send")
         self.horizontalLayout_2.addWidget(self.send)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -92,6 +161,7 @@ class Ui_MainWindow(object):
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
+        self.menuFile.setStyleSheet("")
         self.menuFile.setObjectName("menuFile")
         self.menuSettings = QtWidgets.QMenu(self.menubar)
         self.menuSettings.setObjectName("menuSettings")
@@ -123,11 +193,11 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "QtChat"))
-        __sortingEnabled = self.listWidget.isSortingEnabled()
-        self.listWidget.setSortingEnabled(False)
-        item = self.listWidget.item(0)
+        __sortingEnabled = self.channel.isSortingEnabled()
+        self.channel.setSortingEnabled(False)
+        item = self.channel.item(0)
         item.setText(_translate("MainWindow", "Default Channel"))
-        self.listWidget.setSortingEnabled(__sortingEnabled)
+        self.channel.setSortingEnabled(__sortingEnabled)
         self.account_info.setText(_translate("MainWindow", "Username (Channel 127.0.0.1: 8080)"))
         self.reconnect.setText(_translate("MainWindow", "Reconnect"))
         self.upload.setText(_translate("MainWindow", "Upload"))
