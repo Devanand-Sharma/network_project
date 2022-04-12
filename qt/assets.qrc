@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="main_prefix">
+    <file>send-plane-2-line.png</file>
+    <file>refresh-line.png</file>
+    <file>attachment-2.png</file>
+    <file>message-3-fill.png</file>
+  </qresource>
+</RCC>

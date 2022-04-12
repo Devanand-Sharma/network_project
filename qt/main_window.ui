@@ -10,8 +10,21 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
   <property name="windowTitle">
    <string>QtChat</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="assets.qrc">
+    <normaloff>:/main_prefix/message-3-fill.png</normaloff>:/main_prefix/message-3-fill.png</iconset>
+  </property>
+  <property name="windowOpacity">
+   <double>0.960000000000000</double>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #fff;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
@@ -20,10 +33,22 @@
       <x>0</x>
       <y>0</y>
       <width>801</width>
-      <height>551</height>
+      <height>571</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+     <property name="leftMargin">
+      <number>10</number>
+     </property>
+     <property name="topMargin">
+      <number>10</number>
+     </property>
+     <property name="rightMargin">
+      <number>10</number>
+     </property>
+     <property name="bottomMargin">
+      <number>10</number>
+     </property>
      <item>
       <widget class="QListWidget" name="listWidget">
        <property name="maximumSize">
@@ -31,6 +56,15 @@
          <width>200</width>
          <height>16777215</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: none;
+font-size: 9;</string>
        </property>
        <item>
         <property name="text">
@@ -44,31 +78,72 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QLabel" name="label_2">
+          <widget class="QLineEdit" name="account_info">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border: none</string>
+           </property>
            <property name="text">
-            <string>Username</string>
+            <string>Username (Channel 127.0.0.1: 8080)</string>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="username"/>
+          <widget class="QPushButton" name="reconnect">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#reconnect {
+	border: 2px solid #bf5af2;
+	border-radius: 1em;
+	padding: .3em;
+}</string>
+           </property>
+           <property name="text">
+            <string>Reconnect</string>
+           </property>
+           <property name="icon">
+            <iconset resource="assets.qrc">
+             <normaloff>:/main_prefix/refresh-line.png</normaloff>:/main_prefix/refresh-line.png</iconset>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
        <item>
-        <widget class="QTextEdit" name="textEdit"/>
+        <widget class="QTextEdit" name="textEdit">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Message</string>
-           </property>
-          </widget>
+          <widget class="QLineEdit" name="lineEdit"/>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit"/>
+          <widget class="QPushButton" name="upload">
+           <property name="text">
+            <string>Upload</string>
+           </property>
+           <property name="icon">
+            <iconset resource="assets.qrc">
+             <normaloff>:/main_prefix/attachment-2.png</normaloff>:/main_prefix/attachment-2.png</iconset>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QPushButton" name="send">
@@ -95,8 +170,11 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>Connect</string>
+     <string>Account</string>
     </property>
+    <addaction name="actionLogin"/>
+    <addaction name="actionLogout"/>
+    <addaction name="actionSwitch_user"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
@@ -112,7 +190,6 @@
    <addaction name="menuSettings"/>
    <addaction name="menuExit"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSettings">
    <property name="text">
     <string>Settings</string>
@@ -128,7 +205,24 @@
     <string>Settings</string>
    </property>
   </action>
+  <action name="actionLogin">
+   <property name="text">
+    <string>Login</string>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </action>
+  <action name="actionSwitch_user">
+   <property name="text">
+    <string>Switch user</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="assets.qrc"/>
+ </resources>
  <connections/>
 </ui>
