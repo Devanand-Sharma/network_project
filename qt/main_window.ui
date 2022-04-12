@@ -72,6 +72,8 @@
 #channel::item {
 	background: #f2f2f7;
 	border-radius: .3em;
+	margin-right: .3em;
+	padding: 0 .2em;
 }
 #channel::item:selected {
 	background-color: #64d2ff;

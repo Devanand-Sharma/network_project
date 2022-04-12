@@ -41,6 +41,8 @@ class Ui_MainWindow(object):
 "#channel::item {\n"
 "    background: #f2f2f7;\n"
 "    border-radius: .3em;\n"
+"    margin-right: .3em;\n"
+"    padding: 0 .2em;\n"
 "}\n"
 "#channel::item:selected {\n"
 "    background-color: #64d2ff;\n"
