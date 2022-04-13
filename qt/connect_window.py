@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file '.\connect_window.ui'
+# Form implementation generated from reading ui file 'connect_window.ui'
 #
 # Created by: PyQt6 UI code generator 6.1.0
 #
@@ -13,47 +13,117 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(400, 232)
+        Form.setStyleSheet("background: #fff;")
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.gridLayout = QtWidgets.QGridLayout()
-        self.gridLayout.setVerticalSpacing(36)
+        self.gridLayout.setVerticalSpacing(18)
         self.gridLayout.setObjectName("gridLayout")
+        self.label_2 = QtWidgets.QLabel(Form)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
+        self.port = QtWidgets.QLineEdit(Form)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.port.setFont(font)
+        self.port.setStyleSheet("#port {\n"
+"    background-color: #fafafa;\n"
+"    border: 1px solid transparent;\n"
+"    border-bottom-color: #ccc;\n"
+"    padding: .2em;\n"
+"    margin-bottom: 1px;\n"
+"}\n"
+"#port:focus {\n"
+"    border-bottom-color: #64d2ff;\n"
+"    border-width: 2px;\n"
+"}")
+        self.port.setObjectName("port")
+        self.gridLayout.addWidget(self.port, 1, 1, 1, 1)
+        self.username = QtWidgets.QLineEdit(Form)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.username.setFont(font)
+        self.username.setStyleSheet("#username {\n"
+"    background-color: #fafafa;\n"
+"    border: 1px solid transparent;\n"
+"    border-bottom-color: #ccc;\n"
+"    padding: .2em;\n"
+"    margin-bottom: 1px;\n"
+"}\n"
+"#username:focus {\n"
+"    border-bottom-color: #64d2ff;\n"
+"    border-width: 2px;\n"
+"}")
+        self.username.setObjectName("username")
+        self.gridLayout.addWidget(self.username, 2, 1, 1, 1)
+        self.label_3 = QtWidgets.QLabel(Form)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
+        self.hostname = QtWidgets.QLineEdit(Form)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.hostname.setFont(font)
+        self.hostname.setStyleSheet("#hostname {\n"
+"    background-color: #fafafa;\n"
+"    border: 1px solid transparent;\n"
+"    border-bottom-color: #ccc;\n"
+"    padding: .2em;\n"
+"    margin-bottom: 1px;\n"
+"}\n"
+"#hostname:focus {\n"
+"    border-bottom-color: #64d2ff;\n"
+"    border-width: 2px;\n"
+"}")
+        self.hostname.setObjectName("hostname")
+        self.gridLayout.addWidget(self.hostname, 0, 1, 1, 1)
         self.label = QtWidgets.QLabel(Form)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label.setFont(font)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
-        self.hostname = QtWidgets.QLineEdit(Form)
-        self.hostname.setObjectName("Hostname")
-        self.gridLayout.addWidget(self.hostname, 0, 1, 1, 1)
-        self.aliasLabel = QtWidgets.QLabel(Form)
-        self.aliasLabel.setObjectName("aliasLabel")
-        self.gridLayout.addWidget(self.aliasLabel, 1, 0, 1, 1)
-        self.alias = QtWidgets.QLineEdit(Form)
-        self.alias.setObjectName("Alias")
-        self.gridLayout.addWidget(self.alias, 1, 1, 1, 1)
-        self.port = QtWidgets.QLineEdit(Form)
-        self.port.setObjectName("Port")
-        self.gridLayout.addWidget(self.port, 2, 1, 1, 1)
-        self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setObjectName("label_2")
-        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem)
-        self.connect = QtWidgets.QPushButton(Form)
-        self.connect.setObjectName("Connect")
-        self.horizontalLayout_2.addWidget(self.connect)
-        self.cancel = QtWidgets.QPushButton(Form)
-        self.cancel.setObjectName("Cancel")
-        self.horizontalLayout_2.addWidget(self.cancel)
-        self.gridLayout.addLayout(self.horizontalLayout_2, 2, 2, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.connect = QtWidgets.QPushButton(Form)
+        self.connect.setStyleSheet("#connect {\n"
+"    border: 1px solid #30d158;\n"
+"    border-radius: .3em;\n"
+"    padding: .2em .5em;\n"
+"    min-width: 4em;\n"
+"}\n"
+"#connect:hover {\n"
+"    background-color: #30d158;\n"
+"    color: #fff;\n"
+"}")
+        self.connect.setObjectName("connect")
+        self.horizontalLayout.addWidget(self.connect)
+        self.cancel = QtWidgets.QPushButton(Form)
+        self.cancel.setStyleSheet("#cancel {\n"
+"    border: 1px solid #ff375f;\n"
+"    border-radius: .3em;\n"
+"    padding: .2em .5em;\n"
+"    min-width: 4em;\n"
+"}\n"
+"#cancel:hover {\n"
+"    background-color: #ff375f;\n"
+"    color: #fff;\n"
+"    padding-left: 0;\n"
+"}")
+        self.cancel.setObjectName("cancel")
+        self.horizontalLayout.addWidget(self.cancel)
+        self.verticalLayout.addLayout(self.horizontalLayout)
 
         self.connect.clicked.connect(self.connectClicked)
         self.cancel.clicked.connect(self.cancelClicked)
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
-
 
     def connectClicked(self, Form):
         print("Connect Clicked")
@@ -64,14 +134,12 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Connect"))
-        self.label.setText(_translate("Form", "Hostname"))
-        self.aliasLabel.setText(_translate("Form", "Alias"))
+        Form.setWindowTitle(_translate("Form", "QtChat - Connect"))
         self.label_2.setText(_translate("Form", "Port Number"))
+        self.label_3.setText(_translate("Form", "Username"))
+        self.label.setText(_translate("Form", "Hostname"))
         self.connect.setText(_translate("Form", "Connect"))
         self.cancel.setText(_translate("Form", "Cancel"))
-
-    
 
 
 if __name__ == "__main__":
