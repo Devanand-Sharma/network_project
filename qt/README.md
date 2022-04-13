@@ -11,6 +11,7 @@
 
 ## Ouput command
 python -m PyQt6.uic.pyuic -x main_window.ui -o main_window.py
+
 python -m PyQt6.uic.pyuic -x connect_window.ui -o connect_window.ui.py
 
 ## Screenshots
