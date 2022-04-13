@@ -11,64 +11,161 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Connect</string>
+   <string>QtChat - Connect</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #fff;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QGridLayout" name="gridLayout">
      <property name="verticalSpacing">
-      <number>36</number>
+      <number>18</number>
      </property>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Hostname</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="hostname"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="port"/>
-     </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>Port Number</string>
        </property>
       </widget>
      </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="port">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#port {
+	background-color: #fafafa;
+	border: 1px solid transparent;
+	border-bottom-color: #ccc;
+	padding: .2em;
+	margin-bottom: 1px;
+}
+#port:focus {
+	border-bottom-color: #64d2ff;
+	border-width: 2px;
+}</string>
+       </property>
+      </widget>
+     </item>
      <item row="2" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="connect">
-         <property name="text">
-          <string>Connect</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="cancel">
-         <property name="text">
-          <string>Cancel</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QLineEdit" name="username">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#username {
+	background-color: #fafafa;
+	border: 1px solid transparent;
+	border-bottom-color: #ccc;
+	padding: .2em;
+	margin-bottom: 1px;
+}
+#username:focus {
+	border-bottom-color: #64d2ff;
+	border-width: 2px;
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Username</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="hostname">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#hostname {
+	background-color: #fafafa;
+	border: 1px solid transparent;
+	border-bottom-color: #ccc;
+	padding: .2em;
+	margin-bottom: 1px;
+}
+#hostname:focus {
+	border-bottom-color: #64d2ff;
+	border-width: 2px;
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Hostname</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="connect">
+       <property name="styleSheet">
+        <string notr="true">#connect {
+	border: 1px solid #30d158;
+	border-radius: .3em;
+	padding: .2em .5em;
+	min-width: 4em;
+}
+#connect:hover {
+	background-color: #30d158;
+	color: #fff;
+}</string>
+       </property>
+       <property name="text">
+        <string>Connect</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancel">
+       <property name="styleSheet">
+        <string notr="true">#cancel {
+	border: 1px solid #ff375f;
+	border-radius: .3em;
+	padding: .2em .5em;
+	min-width: 4em;
+}
+#cancel:hover {
+	background-color: #ff375f;
+	color: #fff;
+	padding-left: 0;
+}</string>
+       </property>
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
