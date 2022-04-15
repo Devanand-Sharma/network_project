@@ -16,10 +16,6 @@
   <property name="windowTitle">
    <string>QtChat</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="assets.qrc">
-    <normaloff>:/main_prefix/message-3-fill.png</normaloff>:/main_prefix/message-3-fill.png</iconset>
-  </property>
   <property name="windowOpacity">
    <double>0.960000000000000</double>
   </property>
@@ -126,15 +122,10 @@
 #reconnect:hover {
 	background-color: #bf5af2;
 	color: #fff;
-	padding-left: 0;
 }</string>
            </property>
            <property name="text">
             <string>Reconnect</string>
-           </property>
-           <property name="icon">
-            <iconset resource="assets.qrc">
-             <normaloff>:/main_prefix/refresh-line.png</normaloff>:/main_prefix/refresh-line.png</iconset>
            </property>
           </widget>
          </item>
@@ -186,34 +177,8 @@
 	border-width: 2px;
 }</string>
            </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="upload">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">#upload {
-	border: 1px solid #66d4cf;
-	border-radius: .3em;
-	padding: .2em .5em;
-	min-width: 4em;
-}
-#upload:hover {
-	background-color: #66d4cf;
-	color: #fff;
-	padding-left: 0;
-}</string>
-           </property>
-           <property name="text">
-            <string>Upload</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>attachment-2.png</normaloff>attachment-2.png</iconset>
+           <property name="clearButtonEnabled">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -234,15 +199,10 @@
 #send:hover {
 	background-color: #0a84ff;
 	color: #fff;
-	padding-left: 0;
 }</string>
            </property>
            <property name="text">
             <string>Send</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>send-plane-2-line.png</normaloff>send-plane-2-line.png</iconset>
            </property>
           </widget>
          </item>
@@ -267,11 +227,8 @@
      <string notr="true"/>
     </property>
     <property name="title">
-     <string>Account</string>
+     <string>Connect</string>
     </property>
-    <addaction name="actionLogin"/>
-    <addaction name="actionLogout"/>
-    <addaction name="actionSwitch_user"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
@@ -318,8 +275,6 @@
    </property>
   </action>
  </widget>
- <resources>
-  <include location="assets.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
