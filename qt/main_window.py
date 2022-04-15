@@ -14,6 +14,9 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         MainWindow.setMouseTracking(False)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/main_prefix/message-3-fill.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(0.96)
         MainWindow.setStyleSheet("background: #fff;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -74,7 +77,11 @@ class Ui_MainWindow(object):
 "#reconnect:hover {\n"
 "    background-color: #bf5af2;\n"
 "    color: #fff;\n"
+"    padding-left: 0;\n"
 "}")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/main_prefix/refresh-line.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.reconnect.setIcon(icon1)
         self.reconnect.setObjectName("reconnect")
         self.horizontalLayout_3.addWidget(self.reconnect)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -108,9 +115,28 @@ class Ui_MainWindow(object):
 "    border-bottom-color: #64d2ff;\n"
 "    border-width: 2px;\n"
 "}")
-        self.message.setClearButtonEnabled(True)
         self.message.setObjectName("message")
         self.horizontalLayout_2.addWidget(self.message)
+        self.upload = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.upload.setFont(font)
+        self.upload.setStyleSheet("#upload {\n"
+"    border: 1px solid #66d4cf;\n"
+"    border-radius: .3em;\n"
+"    padding: .2em .5em;\n"
+"    min-width: 4em;\n"
+"}\n"
+"#upload:hover {\n"
+"    background-color: #66d4cf;\n"
+"    color: #fff;\n"
+"    padding-left: 0;\n"
+"}")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("attachment-2.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.upload.setIcon(icon2)
+        self.upload.setObjectName("upload")
+        self.horizontalLayout_2.addWidget(self.upload)
         self.send = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -124,7 +150,11 @@ class Ui_MainWindow(object):
 "#send:hover {\n"
 "    background-color: #0a84ff;\n"
 "    color: #fff;\n"
+"    padding-left: 0;\n"
 "}")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("send-plane-2-line.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.send.setIcon(icon3)
         self.send.setObjectName("send")
         self.horizontalLayout_2.addWidget(self.send)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -153,6 +183,9 @@ class Ui_MainWindow(object):
         self.actionLogout.setObjectName("actionLogout")
         self.actionSwitch_user = QtGui.QAction(MainWindow)
         self.actionSwitch_user.setObjectName("actionSwitch_user")
+        self.menuFile.addAction(self.actionLogin)
+        self.menuFile.addAction(self.actionLogout)
+        self.menuFile.addAction(self.actionSwitch_user)
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuSettings.menuAction())
         self.menubar.addAction(self.menuExit.menuAction())
@@ -170,8 +203,9 @@ class Ui_MainWindow(object):
         self.channel.setSortingEnabled(__sortingEnabled)
         self.account_info.setText(_translate("MainWindow", "Username (Channel 127.0.0.1: 8080)"))
         self.reconnect.setText(_translate("MainWindow", "Reconnect"))
+        self.upload.setText(_translate("MainWindow", "Upload"))
         self.send.setText(_translate("MainWindow", "Send"))
-        self.menuFile.setTitle(_translate("MainWindow", "Connect"))
+        self.menuFile.setTitle(_translate("MainWindow", "Account"))
         self.menuSettings.setTitle(_translate("MainWindow", "Settings"))
         self.menuExit.setTitle(_translate("MainWindow", "Exit"))
         self.actionSettings.setText(_translate("MainWindow", "Settings"))
