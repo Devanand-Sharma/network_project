@@ -7,6 +7,8 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+import subprocess
+import os, sys
 
 
 class Ui_MainWindow(object):
@@ -189,6 +191,21 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuSettings.menuAction())
         self.menubar.addAction(self.menuExit.menuAction())
+
+        #button & function binding start from here
+        self.menuFile.triggered.connect(self.menuFileClicked)
+        self.send.clicked.connect(self.sendClicked)
+        #button & function binding end at here
+        
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def menuFileClicked(self, MainWindow):
+        subprocess.call("connect_window.py", shell=True)
+    def sendClicked(self, MainWindow):
+        sys.path.append(os.path.abspath('../'))
+        from client import write
+        write()
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
