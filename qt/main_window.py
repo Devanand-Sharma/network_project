@@ -7,7 +7,9 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from matplotlib.pyplot import connect
 
+############################################################################### Main Window ###############################################################################
 
 class Ui_QtChat(object):
 	def setupUi(self, QtChat):
@@ -171,8 +173,18 @@ class Ui_QtChat(object):
 		self.menubar.addAction(self.menuSettings.menuAction())
 		self.menubar.addAction(self.menuExit.menuAction())
 
+
+		self.actionConnect.triggered.connect(self.openWindow)
+		self.send.clicked.connect(self.openWindow)
 		self.retranslateUi(QtChat)
 		QtCore.QMetaObject.connectSlotsByName(QtChat)
+
+	# https://www.youtube.com/watch?v=R5N8TA0KFxc
+	def openWindow(self, QtChat):
+		self.window = QtWidgets.QWidget()
+		self.ui = Ui_Form()
+		self.ui.setupUi(self.window)
+		self.window.show()
 
 	def retranslateUi(self, QtChat):
 		_translate = QtCore.QCoreApplication.translate
@@ -193,6 +205,11 @@ class Ui_QtChat(object):
 		self.actionConnect.setText(_translate("QtChat", "Connect"))
 		self.actionNew_connection.setText(_translate("QtChat", "New connection"))
 		self.actionReconnect.setText(_translate("QtChat", "Reconnect"))
+
+
+########################################################################### Connection window #############################################################################
+
+
 
 class Ui_Form(object):
 	def setupUi(self, Form):
@@ -329,6 +346,11 @@ class Ui_Form(object):
 		self.connect.setText(_translate("Form", "Connect"))
 		self.cancel.setText(_translate("Form", "Cancel"))
 
+def showConn():
+	Form = QtWidgets.QWidget()
+	ui = Ui_Form()
+	ui.setupUi(Form)
+	Form.show()
 
 if __name__ == "__main__":
 	import sys
@@ -337,10 +359,5 @@ if __name__ == "__main__":
 	ui = Ui_QtChat()
 	ui.setupUi(QtChat)
 	QtChat.show()
-
-	Form = QtWidgets.QWidget()
-	ui = Ui_Form()
-	ui.setupUi(Form)
-	# Form.show()
 
 	sys.exit(app.exec())
