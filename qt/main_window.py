@@ -7,8 +7,6 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-import subprocess
-import os, sys
 
 
 class Ui_MainWindow(object):
@@ -16,9 +14,6 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         MainWindow.setMouseTracking(False)
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/main_prefix/message-3-fill.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(0.96)
         MainWindow.setStyleSheet("background: #fff;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -81,9 +76,6 @@ class Ui_MainWindow(object):
 "    color: #fff;\n"
 "    padding-left: 0;\n"
 "}")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/main_prefix/refresh-line.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.reconnect.setIcon(icon1)
         self.reconnect.setObjectName("reconnect")
         self.horizontalLayout_3.addWidget(self.reconnect)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -134,9 +126,6 @@ class Ui_MainWindow(object):
 "    color: #fff;\n"
 "    padding-left: 0;\n"
 "}")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("attachment-2.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.upload.setIcon(icon2)
         self.upload.setObjectName("upload")
         self.horizontalLayout_2.addWidget(self.upload)
         self.send = QtWidgets.QPushButton(self.horizontalLayoutWidget)
@@ -154,9 +143,6 @@ class Ui_MainWindow(object):
 "    color: #fff;\n"
 "    padding-left: 0;\n"
 "}")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("send-plane-2-line.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.send.setIcon(icon3)
         self.send.setObjectName("send")
         self.horizontalLayout_2.addWidget(self.send)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -191,21 +177,6 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuSettings.menuAction())
         self.menubar.addAction(self.menuExit.menuAction())
-
-        #button & function binding start from here
-        self.menuFile.triggered.connect(self.menuFileClicked)
-        self.send.clicked.connect(self.sendClicked)
-        #button & function binding end at here
-        
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-    def menuFileClicked(self, MainWindow):
-        subprocess.call("connect_window.py", shell=True)
-    def sendClicked(self, MainWindow):
-        sys.path.append(os.path.abspath('../'))
-        from client import write
-        write()
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)

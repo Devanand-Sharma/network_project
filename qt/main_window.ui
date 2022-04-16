@@ -16,10 +16,6 @@
   <property name="windowTitle">
    <string>QtChat</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="assets.qrc">
-    <normaloff>:/main_prefix/message-3-fill.png</normaloff>:/main_prefix/message-3-fill.png</iconset>
-  </property>
   <property name="windowOpacity">
    <double>0.960000000000000</double>
   </property>
@@ -132,10 +128,6 @@
            <property name="text">
             <string>Reconnect</string>
            </property>
-           <property name="icon">
-            <iconset resource="assets.qrc">
-             <normaloff>:/main_prefix/refresh-line.png</normaloff>:/main_prefix/refresh-line.png</iconset>
-           </property>
           </widget>
          </item>
         </layout>
@@ -211,10 +203,6 @@
            <property name="text">
             <string>Upload</string>
            </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>attachment-2.png</normaloff>attachment-2.png</iconset>
-           </property>
           </widget>
          </item>
          <item>
@@ -239,10 +227,6 @@
            </property>
            <property name="text">
             <string>Send</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>send-plane-2-line.png</normaloff>send-plane-2-line.png</iconset>
            </property>
           </widget>
          </item>
@@ -318,8 +302,6 @@
    </property>
   </action>
  </widget>
- <resources>
-  <include location="assets.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
