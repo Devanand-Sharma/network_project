@@ -9,27 +9,28 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
-        MainWindow.setMouseTracking(False)
-        MainWindow.setWindowOpacity(0.96)
-        MainWindow.setStyleSheet("background: #fff;")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 801, 571))
-        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
-        self.horizontalLayout.setContentsMargins(10, 10, 10, 10)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.channel = QtWidgets.QListWidget(self.horizontalLayoutWidget)
-        self.channel.setMaximumSize(QtCore.QSize(200, 16777215))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.channel.setFont(font)
-        self.channel.setStyleSheet("#channel {\n"
+class Ui_QtChat(object):
+	def setupUi(self, QtChat):
+		QtChat.setObjectName("QtChat")
+		QtChat.resize(800, 600)
+		QtChat.setMouseTracking(False)
+		QtChat.setWindowOpacity(0.96)
+		QtChat.setStyleSheet("background: #fff;")
+		QtChat.setDocumentMode(False)
+		self.centralwidget = QtWidgets.QWidget(QtChat)
+		self.centralwidget.setObjectName("centralwidget")
+		self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
+		self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 801, 571))
+		self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
+		self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
+		self.horizontalLayout.setContentsMargins(10, 10, 10, 10)
+		self.horizontalLayout.setObjectName("horizontalLayout")
+		self.channel = QtWidgets.QListWidget(self.horizontalLayoutWidget)
+		self.channel.setMaximumSize(QtCore.QSize(200, 16777215))
+		font = QtGui.QFont()
+		font.setPointSize(12)
+		self.channel.setFont(font)
+		self.channel.setStyleSheet("#channel {\n"
 "    border: none;\n"
 "    font-size: 9;\n"
 "    border-right: 1px solid #d6d9dc;\n"
@@ -45,27 +46,27 @@ class Ui_MainWindow(object):
 "    background-color: #64d2ff;\n"
 "    color: #fff;\n"
 "}")
-        self.channel.setObjectName("channel")
-        item = QtWidgets.QListWidgetItem()
-        self.channel.addItem(item)
-        self.horizontalLayout.addWidget(self.channel)
-        self.verticalLayout = QtWidgets.QVBoxLayout()
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.account_info = QtWidgets.QLineEdit(self.horizontalLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.account_info.setFont(font)
-        self.account_info.setStyleSheet("border: none")
-        self.account_info.setReadOnly(True)
-        self.account_info.setObjectName("account_info")
-        self.horizontalLayout_3.addWidget(self.account_info)
-        self.reconnect = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.reconnect.setFont(font)
-        self.reconnect.setStyleSheet("#reconnect {\n"
+		self.channel.setObjectName("channel")
+		item = QtWidgets.QListWidgetItem()
+		self.channel.addItem(item)
+		self.horizontalLayout.addWidget(self.channel)
+		self.verticalLayout = QtWidgets.QVBoxLayout()
+		self.verticalLayout.setObjectName("verticalLayout")
+		self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+		self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+		self.account_info = QtWidgets.QLineEdit(self.horizontalLayoutWidget)
+		font = QtGui.QFont()
+		font.setPointSize(12)
+		self.account_info.setFont(font)
+		self.account_info.setStyleSheet("border: none")
+		self.account_info.setReadOnly(True)
+		self.account_info.setObjectName("account_info")
+		self.horizontalLayout_3.addWidget(self.account_info)
+		self.reconnect = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+		font = QtGui.QFont()
+		font.setPointSize(10)
+		self.reconnect.setFont(font)
+		self.reconnect.setStyleSheet("#reconnect {\n"
 "    border: 1px solid #bf5af2;\n"
 "    border-radius: .3em;\n"
 "    padding: .2em .5em;\n"
@@ -74,31 +75,30 @@ class Ui_MainWindow(object):
 "#reconnect:hover {\n"
 "    background-color: #bf5af2;\n"
 "    color: #fff;\n"
-"    padding-left: 0;\n"
 "}")
-        self.reconnect.setObjectName("reconnect")
-        self.horizontalLayout_3.addWidget(self.reconnect)
-        self.verticalLayout.addLayout(self.horizontalLayout_3)
-        self.textEdit = QtWidgets.QTextEdit(self.horizontalLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.textEdit.setFont(font)
-        self.textEdit.setStyleSheet("#textEdit {\n"
+		self.reconnect.setObjectName("reconnect")
+		self.horizontalLayout_3.addWidget(self.reconnect)
+		self.verticalLayout.addLayout(self.horizontalLayout_3)
+		self.textEdit = QtWidgets.QTextEdit(self.horizontalLayoutWidget)
+		font = QtGui.QFont()
+		font.setPointSize(12)
+		self.textEdit.setFont(font)
+		self.textEdit.setStyleSheet("#textEdit {\n"
 "    background: #fafafa;\n"
 "    border: none;\n"
 "}")
-        self.textEdit.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
-        self.textEdit.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
-        self.textEdit.setReadOnly(True)
-        self.textEdit.setObjectName("textEdit")
-        self.verticalLayout.addWidget(self.textEdit)
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.message = QtWidgets.QLineEdit(self.horizontalLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.message.setFont(font)
-        self.message.setStyleSheet("#message {\n"
+		self.textEdit.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+		self.textEdit.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
+		self.textEdit.setReadOnly(True)
+		self.textEdit.setObjectName("textEdit")
+		self.verticalLayout.addWidget(self.textEdit)
+		self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+		self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+		self.message = QtWidgets.QLineEdit(self.horizontalLayoutWidget)
+		font = QtGui.QFont()
+		font.setPointSize(10)
+		self.message.setFont(font)
+		self.message.setStyleSheet("#message {\n"
 "    background-color: #fafafa;\n"
 "    border: 1px solid transparent;\n"
 "    border-bottom-color: #ccc;\n"
@@ -109,13 +109,13 @@ class Ui_MainWindow(object):
 "    border-bottom-color: #64d2ff;\n"
 "    border-width: 2px;\n"
 "}")
-        self.message.setObjectName("message")
-        self.horizontalLayout_2.addWidget(self.message)
-        self.upload = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.upload.setFont(font)
-        self.upload.setStyleSheet("#upload {\n"
+		self.message.setObjectName("message")
+		self.horizontalLayout_2.addWidget(self.message)
+		self.upload = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+		font = QtGui.QFont()
+		font.setPointSize(10)
+		self.upload.setFont(font)
+		self.upload.setStyleSheet("#upload {\n"
 "    border: 1px solid #66d4cf;\n"
 "    border-radius: .3em;\n"
 "    padding: .2em .5em;\n"
@@ -124,15 +124,14 @@ class Ui_MainWindow(object):
 "#upload:hover {\n"
 "    background-color: #66d4cf;\n"
 "    color: #fff;\n"
-"    padding-left: 0;\n"
 "}")
-        self.upload.setObjectName("upload")
-        self.horizontalLayout_2.addWidget(self.upload)
-        self.send = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.send.setFont(font)
-        self.send.setStyleSheet("#send {\n"
+		self.upload.setObjectName("upload")
+		self.horizontalLayout_2.addWidget(self.upload)
+		self.send = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+		font = QtGui.QFont()
+		font.setPointSize(10)
+		self.send.setFont(font)
+		self.send.setStyleSheet("#send {\n"
 "    border: 1px solid #0a84ff;\n"
 "    border-radius: .3em;\n"
 "    padding: .2em .5em;\n"
@@ -141,74 +140,207 @@ class Ui_MainWindow(object):
 "#send:hover {\n"
 "    background-color: #0a84ff;\n"
 "    color: #fff;\n"
+"}")
+		self.send.setObjectName("send")
+		self.horizontalLayout_2.addWidget(self.send)
+		self.verticalLayout.addLayout(self.horizontalLayout_2)
+		self.horizontalLayout.addLayout(self.verticalLayout)
+		QtChat.setCentralWidget(self.centralwidget)
+		self.menubar = QtWidgets.QMenuBar(QtChat)
+		self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
+		self.menubar.setObjectName("menubar")
+		self.menuConnect = QtWidgets.QMenu(self.menubar)
+		self.menuConnect.setStyleSheet("")
+		self.menuConnect.setObjectName("menuConnect")
+		self.menuSettings = QtWidgets.QMenu(self.menubar)
+		self.menuSettings.setObjectName("menuSettings")
+		self.menuExit = QtWidgets.QMenu(self.menubar)
+		self.menuExit.setObjectName("menuExit")
+		QtChat.setMenuBar(self.menubar)
+		self.actionSettings = QtGui.QAction(QtChat)
+		self.actionSettings.setObjectName("actionSettings")
+		self.actionConnect = QtGui.QAction(QtChat)
+		self.actionConnect.setObjectName("actionConnect")
+		self.actionNew_connection = QtGui.QAction(QtChat)
+		self.actionNew_connection.setObjectName("actionNew_connection")
+		self.actionReconnect = QtGui.QAction(QtChat)
+		self.actionReconnect.setObjectName("actionReconnect")
+		self.menuConnect.addAction(self.actionNew_connection)
+		self.menuConnect.addAction(self.actionReconnect)
+		self.menubar.addAction(self.menuConnect.menuAction())
+		self.menubar.addAction(self.menuSettings.menuAction())
+		self.menubar.addAction(self.menuExit.menuAction())
+
+		self.retranslateUi(QtChat)
+		QtCore.QMetaObject.connectSlotsByName(QtChat)
+
+	def retranslateUi(self, QtChat):
+		_translate = QtCore.QCoreApplication.translate
+		QtChat.setWindowTitle(_translate("QtChat", "QtChat"))
+		__sortingEnabled = self.channel.isSortingEnabled()
+		self.channel.setSortingEnabled(False)
+		item = self.channel.item(0)
+		item.setText(_translate("QtChat", "Default Channel"))
+		self.channel.setSortingEnabled(__sortingEnabled)
+		self.account_info.setText(_translate("QtChat", "Username (Channel 127.0.0.1: 8080)"))
+		self.reconnect.setText(_translate("QtChat", "Reconnect"))
+		self.upload.setText(_translate("QtChat", "Upload"))
+		self.send.setText(_translate("QtChat", "Send"))
+		self.menuConnect.setTitle(_translate("QtChat", "Connect"))
+		self.menuSettings.setTitle(_translate("QtChat", "Settings"))
+		self.menuExit.setTitle(_translate("QtChat", "Exit"))
+		self.actionSettings.setText(_translate("QtChat", "Settings"))
+		self.actionConnect.setText(_translate("QtChat", "Connect"))
+		self.actionNew_connection.setText(_translate("QtChat", "New connection"))
+		self.actionReconnect.setText(_translate("QtChat", "Reconnect"))
+
+class Ui_Form(object):
+	def setupUi(self, Form):
+		Form.setObjectName("Form")
+		Form.resize(400, 232)
+		Form.setStyleSheet("background: #fff;")
+		self.verticalLayout = QtWidgets.QVBoxLayout(Form)
+		self.verticalLayout.setObjectName("verticalLayout")
+		self.gridLayout = QtWidgets.QGridLayout()
+		self.gridLayout.setVerticalSpacing(18)
+		self.gridLayout.setObjectName("gridLayout")
+		self.label_2 = QtWidgets.QLabel(Form)
+		font = QtGui.QFont()
+		font.setPointSize(10)
+		self.label_2.setFont(font)
+		self.label_2.setObjectName("label_2")
+		self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
+		self.port = QtWidgets.QLineEdit(Form)
+		font = QtGui.QFont()
+		font.setPointSize(10)
+		self.port.setFont(font)
+		self.port.setStyleSheet("#port {\n"
+"    background-color: #fafafa;\n"
+"    border: 1px solid transparent;\n"
+"    border-bottom-color: #ccc;\n"
+"    padding: .2em;\n"
+"    margin-bottom: 1px;\n"
+"}\n"
+"#port:focus {\n"
+"    border-bottom-color: #64d2ff;\n"
+"    border-width: 2px;\n"
+"}")
+		self.port.setObjectName("port")
+		self.gridLayout.addWidget(self.port, 1, 1, 1, 1)
+		self.username = QtWidgets.QLineEdit(Form)
+		font = QtGui.QFont()
+		font.setPointSize(10)
+		self.username.setFont(font)
+		self.username.setStyleSheet("#username {\n"
+"    background-color: #fafafa;\n"
+"    border: 1px solid transparent;\n"
+"    border-bottom-color: #ccc;\n"
+"    padding: .2em;\n"
+"    margin-bottom: 1px;\n"
+"}\n"
+"#username:focus {\n"
+"    border-bottom-color: #64d2ff;\n"
+"    border-width: 2px;\n"
+"}")
+		self.username.setObjectName("username")
+		self.gridLayout.addWidget(self.username, 2, 1, 1, 1)
+		self.label_3 = QtWidgets.QLabel(Form)
+		font = QtGui.QFont()
+		font.setPointSize(10)
+		self.label_3.setFont(font)
+		self.label_3.setObjectName("label_3")
+		self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
+		self.hostname = QtWidgets.QLineEdit(Form)
+		font = QtGui.QFont()
+		font.setPointSize(10)
+		self.hostname.setFont(font)
+		self.hostname.setStyleSheet("#hostname {\n"
+"    background-color: #fafafa;\n"
+"    border: 1px solid transparent;\n"
+"    border-bottom-color: #ccc;\n"
+"    padding: .2em;\n"
+"    margin-bottom: 1px;\n"
+"}\n"
+"#hostname:focus {\n"
+"    border-bottom-color: #64d2ff;\n"
+"    border-width: 2px;\n"
+"}")
+		self.hostname.setObjectName("hostname")
+		self.gridLayout.addWidget(self.hostname, 0, 1, 1, 1)
+		self.label = QtWidgets.QLabel(Form)
+		font = QtGui.QFont()
+		font.setPointSize(10)
+		self.label.setFont(font)
+		self.label.setObjectName("label")
+		self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+		self.verticalLayout.addLayout(self.gridLayout)
+		self.horizontalLayout = QtWidgets.QHBoxLayout()
+		self.horizontalLayout.setObjectName("horizontalLayout")
+		self.connect = QtWidgets.QPushButton(Form)
+		self.connect.setStyleSheet("#connect {\n"
+"    border: 1px solid #30d158;\n"
+"    border-radius: .3em;\n"
+"    padding: .2em .5em;\n"
+"    min-width: 4em;\n"
+"}\n"
+"#connect:hover {\n"
+"    background-color: #30d158;\n"
+"    color: #fff;\n"
+"}")
+		self.connect.setObjectName("connect")
+		self.horizontalLayout.addWidget(self.connect)
+		self.cancel = QtWidgets.QPushButton(Form)
+		self.cancel.setStyleSheet("#cancel {\n"
+"    border: 1px solid #ff375f;\n"
+"    border-radius: .3em;\n"
+"    padding: .2em .5em;\n"
+"    min-width: 4em;\n"
+"}\n"
+"#cancel:hover {\n"
+"    background-color: #ff375f;\n"
+"    color: #fff;\n"
 "    padding-left: 0;\n"
 "}")
-        self.send.setObjectName("send")
-        self.horizontalLayout_2.addWidget(self.send)
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
-        self.horizontalLayout.addLayout(self.verticalLayout)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
-        self.menubar.setObjectName("menubar")
-        self.menuFile = QtWidgets.QMenu(self.menubar)
-        self.menuFile.setStyleSheet("")
-        self.menuFile.setObjectName("menuFile")
-        self.menuSettings = QtWidgets.QMenu(self.menubar)
-        self.menuSettings.setObjectName("menuSettings")
-        self.menuExit = QtWidgets.QMenu(self.menubar)
-        self.menuExit.setObjectName("menuExit")
-        MainWindow.setMenuBar(self.menubar)
-        self.actionSettings = QtGui.QAction(MainWindow)
-        self.actionSettings.setObjectName("actionSettings")
-        self.actionConnect = QtGui.QAction(MainWindow)
-        self.actionConnect.setObjectName("actionConnect")
-        self.actionSettings_2 = QtGui.QAction(MainWindow)
-        self.actionSettings_2.setObjectName("actionSettings_2")
-        self.actionLogin = QtGui.QAction(MainWindow)
-        self.actionLogin.setObjectName("actionLogin")
-        self.actionLogout = QtGui.QAction(MainWindow)
-        self.actionLogout.setObjectName("actionLogout")
-        self.actionSwitch_user = QtGui.QAction(MainWindow)
-        self.actionSwitch_user.setObjectName("actionSwitch_user")
-        self.menuFile.addAction(self.actionLogin)
-        self.menuFile.addAction(self.actionLogout)
-        self.menuFile.addAction(self.actionSwitch_user)
-        self.menubar.addAction(self.menuFile.menuAction())
-        self.menubar.addAction(self.menuSettings.menuAction())
-        self.menubar.addAction(self.menuExit.menuAction())
+		self.cancel.setObjectName("cancel")
+		self.horizontalLayout.addWidget(self.cancel)
+		self.verticalLayout.addLayout(self.horizontalLayout)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+		self.connect.clicked.connect(self.connectClicked)
+		self.cancel.clicked.connect(self.cancelClicked)
+		self.retranslateUi(Form)
+		QtCore.QMetaObject.connectSlotsByName(Form)
 
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "QtChat"))
-        __sortingEnabled = self.channel.isSortingEnabled()
-        self.channel.setSortingEnabled(False)
-        item = self.channel.item(0)
-        item.setText(_translate("MainWindow", "Default Channel"))
-        self.channel.setSortingEnabled(__sortingEnabled)
-        self.account_info.setText(_translate("MainWindow", "Username (Channel 127.0.0.1: 8080)"))
-        self.reconnect.setText(_translate("MainWindow", "Reconnect"))
-        self.upload.setText(_translate("MainWindow", "Upload"))
-        self.send.setText(_translate("MainWindow", "Send"))
-        self.menuFile.setTitle(_translate("MainWindow", "Account"))
-        self.menuSettings.setTitle(_translate("MainWindow", "Settings"))
-        self.menuExit.setTitle(_translate("MainWindow", "Exit"))
-        self.actionSettings.setText(_translate("MainWindow", "Settings"))
-        self.actionConnect.setText(_translate("MainWindow", "Connect"))
-        self.actionSettings_2.setText(_translate("MainWindow", "Settings"))
-        self.actionLogin.setText(_translate("MainWindow", "Login"))
-        self.actionLogout.setText(_translate("MainWindow", "Logout"))
-        self.actionSwitch_user.setText(_translate("MainWindow", "Switch user"))
+	def connectClicked(self, Form):
+		hostname = self.hostname.text()
+		port = self.port.text()
+		username = self.username.text()
+		print("Connect button clicked")
+		print("You are connecting to", username, "@", hostname, ":", port)
+	def cancelClicked(self, Form):
+		print("Cancel button clicked")
+		sys.exit()
+
+	def retranslateUi(self, Form):
+		_translate = QtCore.QCoreApplication.translate
+		Form.setWindowTitle(_translate("Form", "QtChat - Connect"))
+		self.label_2.setText(_translate("Form", "Port Number"))
+		self.label_3.setText(_translate("Form", "Username"))
+		self.label.setText(_translate("Form", "Hostname"))
+		self.connect.setText(_translate("Form", "Connect"))
+		self.cancel.setText(_translate("Form", "Cancel"))
 
 
 if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec())
+	import sys
+	app = QtWidgets.QApplication(sys.argv)
+	QtChat = QtWidgets.QMainWindow()
+	ui = Ui_QtChat()
+	ui.setupUi(QtChat)
+	QtChat.show()
+
+	Form = QtWidgets.QWidget()
+	ui = Ui_Form()
+	ui.setupUi(Form)
+	# Form.show()
+
+	sys.exit(app.exec())

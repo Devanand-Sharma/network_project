@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>QtChat</class>
+ <widget class="QMainWindow" name="QtChat">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -21,6 +21,9 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background: #fff;</string>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
@@ -122,7 +125,6 @@
 #reconnect:hover {
 	background-color: #bf5af2;
 	color: #fff;
-	padding-left: 0;
 }</string>
            </property>
            <property name="text">
@@ -197,7 +199,6 @@
 #upload:hover {
 	background-color: #66d4cf;
 	color: #fff;
-	padding-left: 0;
 }</string>
            </property>
            <property name="text">
@@ -222,7 +223,6 @@
 #send:hover {
 	background-color: #0a84ff;
 	color: #fff;
-	padding-left: 0;
 }</string>
            </property>
            <property name="text">
@@ -246,16 +246,15 @@
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menuConnect">
     <property name="styleSheet">
      <string notr="true"/>
     </property>
     <property name="title">
-     <string>Account</string>
+     <string>Connect</string>
     </property>
-    <addaction name="actionLogin"/>
-    <addaction name="actionLogout"/>
-    <addaction name="actionSwitch_user"/>
+    <addaction name="actionNew_connection"/>
+    <addaction name="actionReconnect"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
@@ -267,7 +266,7 @@
      <string>Exit</string>
     </property>
    </widget>
-   <addaction name="menuFile"/>
+   <addaction name="menuConnect"/>
    <addaction name="menuSettings"/>
    <addaction name="menuExit"/>
   </widget>
@@ -299,6 +298,16 @@
   <action name="actionSwitch_user">
    <property name="text">
     <string>Switch user</string>
+   </property>
+  </action>
+  <action name="actionNew_connection">
+   <property name="text">
+    <string>New connection</string>
+   </property>
+  </action>
+  <action name="actionReconnect">
+   <property name="text">
+    <string>Reconnect</string>
    </property>
   </action>
  </widget>
