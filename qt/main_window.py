@@ -180,7 +180,7 @@ class Ui_QtChat(object):
 		self.menubar.addAction(self.menuExit.menuAction())
 
 
-		self.actionConnect.triggered.connect(self.openWindow)
+		self.actionNew_connection.triggered.connect(self.openWindow)
 		self.reconnect.clicked.connect(self.openWindow)
 		self.send.clicked.connect(self.sendMessage)
 		self.retranslateUi(QtChat)
@@ -194,8 +194,9 @@ class Ui_QtChat(object):
 		self.window.show()
 
 	def sendMessage(self):
-		message = self.message.text()
+		message = f'{alias}: {self.message.text()}'
 		self.message.clear()
+		self.textEdit.append(message)
 		client.send(message.encode('utf-8'))
 
 
@@ -344,9 +345,10 @@ class Ui_Form(object):
 	def connectClicked(self, Form):
 		hostname = self.hostname.text()
 		port = self.port.text()
-		username = self.username.text()
+		global alias
+		alias = self.username.text()
 		print("Connect button clicked")
-		client = newConnection(hostname, port, username)
+		client = newConnection(hostname, port, alias)
 	def cancelClicked(self, Form):
 		print("Cancel button clicked")
 		QApplication.closeAllWindows();
