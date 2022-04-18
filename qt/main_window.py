@@ -179,7 +179,7 @@ class Ui_QtChat(object):
 		self.menubar.addAction(self.menuExit.menuAction())
 
 
-		self.actionConnect.triggered.connect(self.openWindow)
+		self.actionNew_connection.triggered.connect(self.openWindow)
 		self.reconnect.clicked.connect(self.openWindow)
 		self.send.clicked.connect(self.sendMessage)
 		self.retranslateUi(QtChat)
@@ -368,7 +368,7 @@ def newConnection(hostname = "127.0.0.1", port = "55555", username = "Guest"):
 	# Connect client to the server
 	client.connect(('127.0.0.1', 55555))
 	alias = username
-	receive(client, alias)
+	receive(client, alias)#should remove this two argumend 'client, alias' because not match the receive()function
 	return client
 
 def receive():
