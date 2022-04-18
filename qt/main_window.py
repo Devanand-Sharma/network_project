@@ -10,6 +10,7 @@ from ast import alias
 from PyQt6 import QtCore, QtGui, QtWidgets
 import socket
 import threading
+import struct
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 alias = ""
@@ -179,7 +180,7 @@ class Ui_QtChat(object):
 		self.menubar.addAction(self.menuExit.menuAction())
 
 
-		self.actionNew_connection.triggered.connect(self.openWindow)
+		self.actionConnect.triggered.connect(self.openWindow)
 		self.reconnect.clicked.connect(self.openWindow)
 		self.send.clicked.connect(self.sendMessage)
 		self.retranslateUi(QtChat)
@@ -348,7 +349,7 @@ class Ui_Form(object):
 		client = newConnection(hostname, port, username)
 	def cancelClicked(self, Form):
 		print("Cancel button clicked")
-		sys.exit()
+		QApplication.closeAllWindows();
 
 	def retranslateUi(self, Form):
 		_translate = QtCore.QCoreApplication.translate
@@ -361,14 +362,16 @@ class Ui_Form(object):
 
 ########################################################################### Client #############################################################################
 
+
+
 # define default values
 def newConnection(hostname = "127.0.0.1", port = "55555", username = "Guest"):
 	# Create the client socket.
-	# client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	# Connect client to the server
-	client.connect(('127.0.0.1', 55555))
+	client.connect((hostname, int(port)))
 	alias = username
-	receive(client, alias)#should remove this two argumend 'client, alias' because not match the receive()function
+	receive()
 	return client
 
 def receive():
