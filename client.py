@@ -36,6 +36,25 @@ def receive():
             client.close()
             # Break out of the loop.
             break
+        
+def dehash(alias, message):
+    """
+    This function will dehash the message received from other clients.
+    """
+    # Hash method is replacing vowels with consonants.
+    vowels = 'aeiou'
+    # Consonants to replace vowels with
+    replace = '@#$%^'
+    # Go through each letter in the message
+    for letter in message:
+        # Go through the list of vowels and compare them to the letter from message.
+        for vowel in vowels:
+            if letter == vowel:
+                index = vowels.index(vowel)
+                # Replace vowel with consonant
+                message = message.replace(letter, replace[index])
+    newMessage = f"{alias}: {message}"  
+    return newMessage
 
 def write():
     """
@@ -45,9 +64,31 @@ def write():
     # Do this while the application is running
     while True:
         # Prompt the user for the message.
-        message = f"{alias}: {input('')}"
+        message = f"{input('')}"
         # Send the message and encode it.
-        client.send(message.encode('utf-8'))
+        hashedMessage = hash(alias, message)
+        client.send(hashedMessage.encode('utf-8'))
+
+def hash(alias, message):
+    """
+    This function will do a simple mock hack on the messages
+    sent from one client to the others. This "hashing" is strictly used
+    for wireshark debugging.
+    """
+    # Hash method is replacing vowels with symbols.
+    vowels = 'aeiou'
+    # Symbols to replace vowels with
+    replace = '@#$%^'
+    # Go through each letter in the message
+    for letter in message:
+        # Go through the list of vowels and compare them to the letter from message.
+        for vowel in vowels:
+            if letter == vowel:
+                index = vowels.index(vowel)
+                # Replace vowel with symbol
+                message = message.replace(letter, replace[index])
+    newMessage = f"{alias}: {message}"  
+    return newMessage
 
 # Create a thread for receiving messages and start it.
 receive_thread = threading.Thread(target = receive)
