@@ -36,7 +36,7 @@ def receive():
             client.close()
             # Break out of the loop.
             break
-
+        
 def dehash(alias, message):
     """
     This function will dehash the message received from other clients.
