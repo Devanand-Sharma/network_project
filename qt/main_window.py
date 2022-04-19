@@ -200,7 +200,7 @@ class Ui_QtChat(object):
 		hashedMessage = hash(message)
 		client.send(str(hashedMessage).encode('utf-8'))
 
-	def receiveMessage(self):
+	def receiveMessage(self, message):
 		self.textEdit.append(message)
 
 
@@ -351,10 +351,10 @@ class Ui_Form(object):
 		global alias
 		alias = self.username.text()
 		print("Connect button clicked")
-		client = newConnection(hostname, port, alias)
+		newConnection(hostname, port, alias)
 	def cancelClicked(self, Form):
 		print("Cancel button clicked")
-		QApplication.closeAllWindows();
+		app.closeAllWindows();
 
 	def retranslateUi(self, Form):
 		_translate = QtCore.QCoreApplication.translate
