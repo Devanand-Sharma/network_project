@@ -197,7 +197,7 @@ class Ui_QtChat(object):
 		self.message.clear()
 		# self.textEdit.append(message)
 		hashedMessage = hash(message)
-		print(hashedMessage)
+		# print(hashedMessage)
 		client.send(hashedMessage.encode('utf-8'))
 
 	def receiveMessage(self, message):
@@ -399,7 +399,7 @@ def newConnection(hostname = '127.0.0.1', port = "55555", username = "Guest"):
 				# Else we are just printing what the server send us as it's a regular message.
 				else:
 					# print(message)
-					# message = dehash(message)
+					message = dehash(message)
 					ui.receiveMessage(message)
 			# If the receiving message doesn't work, do this.
 			except:
@@ -454,6 +454,7 @@ def hash(message):
 def dehash(message):
     """
     This function will dehash the message received from other clients.
+    Only use this if you want to see the full message at the end.
     """
     # Hash method is replacing vowels with consonants.
     vowels = 'aeiou'
@@ -462,12 +463,13 @@ def dehash(message):
     # Go through each letter in the message
     for letter in message:
         # Go through the list of vowels and compare them to the letter from message.
-        for vowel in vowels:
-            if letter == vowel:
-                index = vowels.index(vowel)
+        for symbol in replace:
+            if letter == symbol:
+                index = replace.index(symbol)
                 # Replace vowel with consonant
-                message = message.replace(letter, replace[index])
-    return message
+                message = message.replace(letter, vowels[index])
+    newMessage = f"{message}"  
+    return newMessage
 
 if __name__ == "__main__":
 	import sys
