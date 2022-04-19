@@ -203,6 +203,8 @@ class Ui_QtChat(object):
 	def receiveMessage(self, message):
 		self.textEdit.append(message)
 
+	def updateChannel(self, channel):
+		self.account_info.setText(channel)
 
 	def retranslateUi(self, QtChat):
 		_translate = QtCore.QCoreApplication.translate
@@ -352,6 +354,7 @@ class Ui_Form(object):
 		alias = self.username.text()
 		print("Connect button clicked")
 		newConnection(hostname, port, alias)
+		ui.account_info.setText(f"{alias} (Channel {hostname}: {port})")
 	def cancelClicked(self, Form):
 		print("Cancel button clicked")
 		app.closeAllWindows();
