@@ -118,22 +118,6 @@ class Ui_QtChat(object):
 "}")
 		self.message.setObjectName("message")
 		self.horizontalLayout_2.addWidget(self.message)
-		self.upload = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-		font = QtGui.QFont()
-		font.setPointSize(10)
-		self.upload.setFont(font)
-		self.upload.setStyleSheet("#upload {\n"
-"    border: 1px solid #66d4cf;\n"
-"    border-radius: .3em;\n"
-"    padding: .2em .5em;\n"
-"    min-width: 4em;\n"
-"}\n"
-"#upload:hover {\n"
-"    background-color: #66d4cf;\n"
-"    color: #fff;\n"
-"}")
-		self.upload.setObjectName("upload")
-		self.horizontalLayout_2.addWidget(self.upload)
 		self.send = QtWidgets.QPushButton(self.horizontalLayoutWidget)
 		font = QtGui.QFont()
 		font.setPointSize(10)
@@ -215,8 +199,7 @@ class Ui_QtChat(object):
 		item.setText(_translate("QtChat", "Default Channel"))
 		self.channel.setSortingEnabled(__sortingEnabled)
 		self.account_info.setText(_translate("QtChat", "Username (Channel 127.0.0.1: 8080)"))
-		self.reconnect.setText(_translate("QtChat", "Reconnect"))
-		self.upload.setText(_translate("QtChat", "Upload"))
+		self.reconnect.setText(_translate("QtChat", "Connect"))
 		self.send.setText(_translate("QtChat", "Send"))
 		self.menuConnect.setTitle(_translate("QtChat", "Connect"))
 		self.menuSettings.setTitle(_translate("QtChat", "Settings"))
