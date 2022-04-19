@@ -197,7 +197,8 @@ class Ui_QtChat(object):
 		message = f'{alias}: {self.message.text()}'
 		self.message.clear()
 		self.textEdit.append(message)
-		client.send(message.encode('utf-8'))
+		hashedMessage = hash(message)
+		client.send(str(hashedMessage).encode('utf-8'))
 
 
 
@@ -402,7 +403,7 @@ def newConnection(hostname = '127.0.0.1', port = "55555", username = "Guest"):
                 # Break out of the loop.
                 break
         
-    def dehash(alias, message):
+    def dehash(message):
         """
         This function will dehash the message received from other clients.
         """
@@ -418,7 +419,7 @@ def newConnection(hostname = '127.0.0.1', port = "55555", username = "Guest"):
                     index = vowels.index(vowel)
                     # Replace vowel with consonant
                     message = message.replace(letter, replace[index])
-        newMessage = f"{alias}: {message}"  
+        newMessage = f"{message}"  
         return newMessage
 
     def write():
@@ -431,10 +432,10 @@ def newConnection(hostname = '127.0.0.1', port = "55555", username = "Guest"):
             # Prompt the user for the message.
             message = f"{alias}: {input('')}"
             # Send the message and encode it.
-            hashedMessage = hash(alias, message)
+            hashedMessage = hash(message)
             client.send(hashedMessage.encode('utf-8'))
 
-    def hash(alias, message):
+    def hash(message):
         """
         This function will do a simple mock hack on the messages
         sent from one client to the others. This "hashing" is strictly used
@@ -452,7 +453,7 @@ def newConnection(hostname = '127.0.0.1', port = "55555", username = "Guest"):
                     index = vowels.index(vowel)
                     # Replace vowel with symbol
                     message = message.replace(letter, replace[index])
-        newMessage = f"{alias}: {message}"  
+        newMessage = f"{message}"  
         return newMessage
 
     # Create a thread for receiving messages and start it.
