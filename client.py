@@ -27,7 +27,9 @@ def receive():
                 client.send(alias.encode('utf-8'))
             # Else we are just printing what the server send us as it's a regular message.
             else:
-                print(message)
+                print(f"Unhashed Message: {message}")
+                cleanMessage = dehash(message)
+                print(f"Clean Message: {cleanMessage}")
         # If the receiving message doesn't work, do this.
         except:
             # Notify the client that the connection is going to be closed.
@@ -36,10 +38,11 @@ def receive():
             client.close()
             # Break out of the loop.
             break
-        
-def dehash(alias, message):
+
+def dehash(message):
     """
     This function will dehash the message received from other clients.
+    Only use this if you want to see the full message at the end.
     """
     # Hash method is replacing vowels with consonants.
     vowels = 'aeiou'
@@ -48,12 +51,12 @@ def dehash(alias, message):
     # Go through each letter in the message
     for letter in message:
         # Go through the list of vowels and compare them to the letter from message.
-        for vowel in vowels:
-            if letter == vowel:
-                index = vowels.index(vowel)
+        for symbol in replace:
+            if letter == symbol:
+                index = replace.index(symbol)
                 # Replace vowel with consonant
-                message = message.replace(letter, replace[index])
-    newMessage = f"{alias}: {message}"  
+                message = message.replace(letter, vowels[index])
+    newMessage = f"{message}"  
     return newMessage
 
 def write():
