@@ -10,7 +10,6 @@ from ast import alias
 from PyQt6 import QtCore, QtGui, QtWidgets
 import socket
 import threading
-import struct
 
 #client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 alias = ""
@@ -196,9 +195,10 @@ class Ui_QtChat(object):
 	def sendMessage(self):
 		message = f'{alias}: {self.message.text()}'
 		self.message.clear()
-		self.textEdit.append(message)
+		# self.textEdit.append(message)
 		hashedMessage = hash(message)
-		client.send(str(hashedMessage).encode('utf-8'))
+		print(hashedMessage)
+		client.send(hashedMessage.encode('utf-8'))
 
 	def receiveMessage(self, message):
 		self.textEdit.append(message)
@@ -396,6 +396,7 @@ def newConnection(hostname = '127.0.0.1', port = "55555", username = "Guest"):
 				# Else we are just printing what the server send us as it's a regular message.
 				else:
 					# print(message)
+					# message = dehash(message)
 					ui.receiveMessage(message)
 			# If the receiving message doesn't work, do this.
 			except:
@@ -405,25 +406,6 @@ def newConnection(hostname = '127.0.0.1', port = "55555", username = "Guest"):
 				client.close()
 				# Break out of the loop.
 				break
-		
-	def dehash(message):
-		"""
-		This function will dehash the message received from other clients.
-		"""
-		# Hash method is replacing vowels with consonants.
-		vowels = 'aeiou'
-		# Consonants to replace vowels with
-		replace = '@#$%^'
-		# Go through each letter in the message
-		for letter in message:
-			# Go through the list of vowels and compare them to the letter from message.
-			for vowel in vowels:
-				if letter == vowel:
-					index = vowels.index(vowel)
-					# Replace vowel with consonant
-					message = message.replace(letter, replace[index])
-		newMessage = f"{message}"  
-		return newMessage
 
 	def write():
 		"""
@@ -438,27 +420,6 @@ def newConnection(hostname = '127.0.0.1', port = "55555", username = "Guest"):
 			hashedMessage = hash(message)
 			client.send(hashedMessage.encode('utf-8'))
 
-	def hash(message):
-		"""
-		This function will do a simple mock hack on the messages
-		sent from one client to the others. This "hashing" is strictly used
-		for wireshark debugging.
-		"""
-		# Hash method is replacing vowels with symbols.
-		vowels = 'aeiou'
-		# Symbols to replace vowels with
-		replace = '@#$%^'
-		# Go through each letter in the message
-		for letter in message:
-			# Go through the list of vowels and compare them to the letter from message.
-			for vowel in vowels:
-				if letter == vowel:
-					index = vowels.index(vowel)
-					# Replace vowel with symbol
-					message = message.replace(letter, replace[index])
-		newMessage = f"{message}"  
-		return newMessage
-
 	# Create a thread for receiving messages and start it.
 	receive_thread = threading.Thread(target = receive)
 	receive_thread.start()
@@ -466,6 +427,44 @@ def newConnection(hostname = '127.0.0.1', port = "55555", username = "Guest"):
 	# Create a thread for writing/sending messages and start it.
 	write_thread = threading.Thread(target = write)
 	write_thread.start()
+
+def hash(message):
+	"""
+	This function will do a simple mock hack on the messages
+	sent from one client to the others. This "hashing" is strictly used
+	for wireshark debugging.
+	"""
+	# Hash method is replacing vowels with symbols.
+	vowels = 'aeiou'
+	# Symbols to replace vowels with
+	replace = '@#$%^'
+	# Go through each letter in the message
+	for letter in message:
+		# Go through the list of vowels and compare them to the letter from message.
+		for vowel in vowels:
+			if letter == vowel:
+				index = vowels.index(vowel)
+				# Replace vowel with symbol
+				message = message.replace(letter, replace[index])
+	return message
+
+def dehash(message):
+    """
+    This function will dehash the message received from other clients.
+    """
+    # Hash method is replacing vowels with consonants.
+    vowels = 'aeiou'
+    # Consonants to replace vowels with
+    replace = '@#$%^'
+    # Go through each letter in the message
+    for letter in message:
+        # Go through the list of vowels and compare them to the letter from message.
+        for vowel in vowels:
+            if letter == vowel:
+                index = vowels.index(vowel)
+                # Replace vowel with consonant
+                message = message.replace(letter, replace[index])
+    return message
 
 if __name__ == "__main__":
 	import sys
